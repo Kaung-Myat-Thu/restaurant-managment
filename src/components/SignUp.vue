@@ -1,5 +1,29 @@
 <template>
-  <h1 class="text-2xl text-center font-bold">Sign up</h1>
+  <div class="flex items-center justify-center flex-col w-screen h-screen">
+    <h1 class="text-3xl font-bold mb-4">Sign up</h1>
+    <form class="w-4/5 max-w-md bg-slate-100 px-4 py-2 rounded-md">
+      <input
+        type="text"
+        placeholder="Enter name..."
+        class="text-sky-500 border border-sky-500 w-full my-2 px-4 py-2 rounded-md focus:outline-sky-500"
+      />
+      <input
+        type="email"
+        placeholder="Enter email..."
+        class="border border-sky-500 w-full my-2 px-4 py-2 rounded-md focus:outline-sky-500"
+      />
+      <input
+        type="password"
+        placeholder="Enter password..."
+        class="border border-sky-500 w-full my-2 px-4 py-2 rounded-md focus:outline-sky-500"
+      />
+      <input
+        type="submit"
+        value="Sign up"
+        class="text-white bg-sky-500 w-full my-2 px-4 py-2 rounded-md hover:bg-sky-600"
+      />
+    </form>
+  </div>
 </template>
 
 <script>
