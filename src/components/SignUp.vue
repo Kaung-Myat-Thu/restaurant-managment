@@ -1,30 +1,33 @@
 <template>
   <div class="flex items-center justify-center flex-col w-screen h-screen">
+    <img src="../assets/logo.png" alt="" class="w-28" />
     <h1 class="text-3xl font-bold mb-4">Sign up</h1>
     <form
-      @submit.prevent=""
+      @submit.prevent="signUp"
       class="w-4/5 max-w-md bg-slate-100 px-4 py-2 rounded-md"
     >
       <input
         v-model="name"
+        required
         type="text"
         placeholder="Enter name..."
         class="text-sky-500 border border-sky-500 w-full my-2 px-4 py-2 rounded-md focus:outline-sky-500"
       />
       <input
         v-model="email"
+        required
         type="email"
         placeholder="Enter email..."
-        class="border border-sky-500 w-full my-2 px-4 py-2 rounded-md focus:outline-sky-500"
+        class="text-sky-500 border border-sky-500 w-full my-2 px-4 py-2 rounded-md focus:outline-sky-500"
       />
       <input
         v-model="password"
+        required
         type="password"
         placeholder="Enter password..."
-        class="border border-sky-500 w-full my-2 px-4 py-2 rounded-md focus:outline-sky-500"
+        class="text-sky-500 border border-sky-500 w-full my-2 px-4 py-2 rounded-md focus:outline-sky-500"
       />
       <input
-        @click="signUp"
         type="submit"
         value="Sign up"
         class="text-white bg-sky-500 w-full my-2 px-4 py-2 rounded-md hover:bg-sky-600 cursor-pointer"
@@ -34,6 +37,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "SignUp",
   data() {
@@ -44,8 +48,20 @@ export default {
     };
   },
   methods: {
-    signUp() {
-      console.log("click");
+    async signUp() {
+      let result = await axios.post("http://localhost:3000/users", {
+        name: this.name,
+        email: this.email,
+        password: this.password,
+      });
+      console.log(result);
+      if (result.status === 201) {
+        alert("signup completed");
+        localStorage.setItem("userInfo", JSON.stringify(result.data));
+      }
+      this.name = "";
+      this.email = "";
+      this.password = "";
     },
   },
 };
