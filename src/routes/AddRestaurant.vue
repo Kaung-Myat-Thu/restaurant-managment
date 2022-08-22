@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import Header from "../components/Header.vue";
 export default {
   name: "AddRestaurnat",
@@ -51,12 +52,15 @@ export default {
     Header,
   },
   methods: {
-    addRestaurant() {
-      console.log(
-        this.restaurant.name,
-        this.restaurant.address,
-        this.restaurant.contact
-      );
+    async addRestaurant() {
+      let result = await axios.post("http://localhost:3000/restaurants", {
+        name: this.restaurant.name,
+        address: this.restaurant.address,
+        contact: this.restaurant.contact,
+      });
+      if (result.status === 201) {
+        this.$router.push({ name: "Home" });
+      }
     },
   },
   mounted() {
@@ -68,5 +72,3 @@ export default {
   },
 };
 </script>
-
-<style></style>

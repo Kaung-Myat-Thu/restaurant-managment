@@ -25,7 +25,7 @@
       "id": 4
     }
   ],
-  "restaruant": [
+  "restaurants": [
     {
       "id": 1,
       "name": "Burger King",
@@ -33,10 +33,28 @@
       "address": "Yangon, Sanchaung"
     },
     {
-      "id": 2,
-      "name": "Pizza Bay",
-      "contact": "312-211-32",
-      "address": "Yangon, Hlaing"
+      "name": "Yangon Burger",
+      "address": "Yangon, Kamayut",
+      "contact": "484-383-38",
+      "id": 2
+    },
+    {
+      "name": "Chill coffee shop",
+      "address": "Yangon, Myaynigone",
+      "contact": "383-339-38",
+      "id": 3
+    },
+    {
+      "name": "Pizza crazy",
+      "address": "Yangon, Mayangone",
+      "contact": "203-372-48",
+      "id": 4
+    },
+    {
+      "name": "Barbu tea shop",
+      "address": "Yangon, Hledan",
+      "contact": "393-438-48",
+      "id": 5
     }
   ]
 }

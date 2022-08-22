@@ -11,10 +11,13 @@
           Restaruant Name
         </td>
         <td class="font-bold text-xl px-2 py-1 border-black border-2">
+          Address
+        </td>
+        <td class="font-bold text-xl px-2 py-1 border-black border-2">
           Contact
         </td>
         <td class="font-bold text-xl px-2 py-1 border-black border-2">
-          Address
+          Action
         </td>
       </tr>
     </thead>
@@ -27,10 +30,23 @@
         <td class="px-2 py-1 border-black border-2">{{ restaruant.id }}</td>
         <td class="px-2 py-1 border-black border-2">{{ restaruant.name }}</td>
         <td class="px-2 py-1 border-black border-2">
+          {{ restaruant.address }}
+        </td>
+        <td class="px-2 py-1 border-black border-2">
           {{ restaruant.contact }}
         </td>
         <td class="px-2 py-1 border-black border-2">
-          {{ restaruant.address }}
+          <router-link
+            class="px-2 py-1 bg-sky-500 rounded-sm mx-1 text-white hover:bg-sky-700"
+            :to="'/update-restaurant/' + restaruant.id"
+            >Update</router-link
+          >
+          <button
+            @click="delRestaurant(restaruant.id)"
+            class="bg-red-500 rounded-sm px-2 py-1 text-white hover:bg-red-700"
+          >
+            Delete
+          </button>
         </td>
       </tr>
     </tbody>
@@ -52,15 +68,28 @@ export default {
   components: {
     Header,
   },
-  async mounted() {
-    let user = localStorage.getItem("userInfo");
-    this.name = JSON.parse(user).name;
-    if (!user) {
-      this.$router.push({ name: "SignUp" });
-    }
+  methods: {
+    async delRestaurant(id) {
+      let result = await axios.delete(
+        "http://localhost:3000/restaurants/" + id
+      );
+      if (result.status === 200) {
+        this.loadData();
+      }
+    },
+    async loadData() {
+      let user = localStorage.getItem("userInfo");
+      this.name = JSON.parse(user).name;
+      if (!user) {
+        this.$router.push({ name: "SignUp" });
+      }
 
-    let result = await axios.get("http://localhost:3000/restaruant");
-    this.restaruants = result.data;
+      let result = await axios.get("http://localhost:3000/restaurants");
+      this.restaruants = result.data;
+    },
+  },
+  async mounted() {
+    this.loadData();
   },
 };
 </script>
