@@ -20,9 +20,23 @@
     },
     {
       "name": "Cathrine",
-      "email": "cathrine@gmai.com",
+      "email": "cathrine@gmail.com",
       "password": "cathrine1234",
       "id": 4
+    }
+  ],
+  "restaruant": [
+    {
+      "id": 1,
+      "name": "Burger King",
+      "contact": "233-231-31",
+      "address": "Yangon, Sanchaung"
+    },
+    {
+      "id": 2,
+      "name": "Pizza Bay",
+      "contact": "312-211-32",
+      "address": "Yangon, Hlaing"
     }
   ]
 }

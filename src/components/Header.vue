@@ -7,9 +7,17 @@
         <img src="../assets/logo.png" alt="logo" class="w-10" />
       </router-link>
       <div>
-        <a class="py-4 mx-2 hover:text-slate-100" href="#">Home</a>
-        <a class="py-4 mx-2 hover:text-slate-100" href="#">Add Restaurant</a>
-        <a class="py-4 mx-2 hover:text-slate-100" href="#">Update Restaurant</a>
+        <router-link class="py-4 mx-2 hover:text-slate-100" to="/"
+          >Home</router-link
+        >
+        <router-link class="py-4 mx-2 hover:text-slate-100" to="/add-restaurant"
+          >Add Restaurant</router-link
+        >
+        <router-link
+          class="py-4 mx-2 hover:text-slate-100"
+          to="/update-restaurant"
+          >Update Restaurant</router-link
+        >
         <a @click="logout" class="py-4 mx-2 hover:text-slate-100" href="#"
           >Logout</a
         >

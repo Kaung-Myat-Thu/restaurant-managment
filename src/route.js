@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "./routes/Home";
 import SignUp from "./routes/SignUp";
 import Login from "./routes/Login";
+import AddRestaurant from "./routes/AddRestaurant";
+import UpdateRestaurant from "./routes/UpdateRestaurant";
 
 const routes = [
   {
@@ -18,6 +20,16 @@ const routes = [
     name: "Login",
     path: "/login",
     component: Login,
+  },
+  {
+    name: "AddRestaurant",
+    path: "/add-restaurant",
+    component: AddRestaurant,
+  },
+  {
+    name: "UpdateRestaurant",
+    path: "/update-restaurant",
+    component: UpdateRestaurant,
   },
 ];
 
