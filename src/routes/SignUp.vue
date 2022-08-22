@@ -1,11 +1,10 @@
 <template>
-  <div class="flex items-center justify-center flex-col w-screen h-screen">
+  <div
+    class="flex items-center justify-center flex-col w-screen h-screen bg-slate-100 rounded-md"
+  >
     <img src="../assets/logo.png" alt="" class="w-28" />
     <h1 class="text-3xl font-bold mb-4">Sign up</h1>
-    <form
-      @submit.prevent="signUp"
-      class="w-4/5 max-w-md bg-slate-100 px-4 py-2 rounded-md"
-    >
+    <form @submit.prevent="signUp" class="w-4/5 max-w-md">
       <input
         v-model="name"
         required
@@ -56,13 +55,16 @@ export default {
       });
       console.log(result);
       if (result.status === 201) {
-        alert("signup completed");
         localStorage.setItem("userInfo", JSON.stringify(result.data));
+        this.$router.push({ name: "Home" });
       }
-      this.name = "";
-      this.email = "";
-      this.password = "";
     },
+  },
+  mounted() {
+    let user = localStorage.getItem("userInfo");
+    if (user) {
+      this.$router.push({ name: "Home" });
+    }
   },
 };
 </script>
