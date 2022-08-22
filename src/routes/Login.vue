@@ -4,7 +4,7 @@
   >
     <img src="../assets/logo.png" alt="" class="w-28" />
     <h1 class="text-3xl font-bold mb-4">Login</h1>
-    <form @submit.prevent="" class="w-4/5 max-w-md">
+    <form @submit.prevent="login" class="w-4/5 max-w-md">
       <input
         v-model="email"
         required
@@ -33,8 +33,26 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Login",
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+  methods: {
+    async login() {
+      let result = await axios.get(
+        `http://localhost:3000/users?email=${this.email}&password=${this.password}`
+      );
+      if (result.status === 200 && result.data.length > 0) {
+        localStorage.setItem("userInfo", JSON.stringify(result.data[0]));
+        this.$router.push({ name: "Home" });
+      }
+    },
+  },
   mounted() {
     let user = localStorage.getItem("userInfo");
     if (user) {

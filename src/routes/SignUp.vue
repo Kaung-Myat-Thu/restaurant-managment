@@ -57,7 +57,6 @@ export default {
         email: this.email,
         password: this.password,
       });
-      console.log(result);
       if (result.status === 201) {
         localStorage.setItem("userInfo", JSON.stringify(result.data));
         this.$router.push({ name: "Home" });
