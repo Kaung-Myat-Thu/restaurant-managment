@@ -13,9 +13,9 @@
         <router-link class="py-4 mx-2 hover:text-slate-100" to="/add-restaurant"
           >Add Restaurant</router-link
         >
-        <a @click="logout" class="py-4 mx-2 hover:text-slate-100" href="#"
-          >Logout</a
-        >
+        <button @click="logout" class="py-4 mx-2 hover:text-slate-100">
+          Logout
+        </button>
       </div>
     </nav>
   </div>
