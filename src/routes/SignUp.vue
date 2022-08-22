@@ -10,21 +10,21 @@
         required
         type="text"
         placeholder="Enter name..."
-        class="text-sky-500 border border-sky-500 w-full my-2 px-4 py-2 rounded-md focus:outline-sky-500"
+        class="text-sky-500 border border-sky-500 w-full my-2 px-4 py-2 rounded-md focus:outline-sky-500 focus:bg-sky-100"
       />
       <input
         v-model="email"
         required
         type="email"
         placeholder="Enter email..."
-        class="text-sky-500 border border-sky-500 w-full my-2 px-4 py-2 rounded-md focus:outline-sky-500"
+        class="text-sky-500 border border-sky-500 w-full my-2 px-4 py-2 rounded-md focus:outline-sky-500 focus:bg-sky-100"
       />
       <input
         v-model="password"
         required
         type="password"
         placeholder="Enter password..."
-        class="text-sky-500 border border-sky-500 w-full my-2 px-4 py-2 rounded-md focus:outline-sky-500"
+        class="text-sky-500 border border-sky-500 w-full my-2 px-4 py-2 rounded-md focus:outline-sky-500 focus:bg-sky-100"
       />
       <input
         type="submit"

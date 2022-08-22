@@ -6,10 +6,16 @@
   <table class="w-4/5 mx-auto border border-collapse text-center">
     <thead>
       <tr>
-        <td class="px-2 py-1 border-black border-2">ID</td>
-        <td class="px-2 py-1 border-black border-2">Restaruant Name</td>
-        <td class="px-2 py-1 border-black border-2">Contact</td>
-        <td class="px-2 py-1 border-black border-2">Address</td>
+        <td class="font-bold text-xl px-2 py-1 border-black border-2">ID</td>
+        <td class="font-bold text-xl px-2 py-1 border-black border-2">
+          Restaruant Name
+        </td>
+        <td class="font-bold text-xl px-2 py-1 border-black border-2">
+          Contact
+        </td>
+        <td class="font-bold text-xl px-2 py-1 border-black border-2">
+          Address
+        </td>
       </tr>
     </thead>
     <tbody>
