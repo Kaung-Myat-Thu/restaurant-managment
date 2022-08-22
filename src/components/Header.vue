@@ -1,6 +1,8 @@
 <template>
   <div class="bg-gray-800 text-slate-300">
-    <nav class="container mx-auto flex items-center justify-between py-2">
+    <nav
+      class="sm:w-4/5 sm:mx-auto mx-3 flex items-center justify-between py-2"
+    >
       <router-link to="/">
         <img src="../assets/logo.png" alt="logo" class="w-10" />
       </router-link>
@@ -8,7 +10,9 @@
         <a class="py-4 mx-2 hover:text-slate-100" href="#">Home</a>
         <a class="py-4 mx-2 hover:text-slate-100" href="#">Add Restaurant</a>
         <a class="py-4 mx-2 hover:text-slate-100" href="#">Update Restaurant</a>
-        <a class="py-4 mx-2 hover:text-slate-100" href="#">Logout</a>
+        <a @click="logout" class="py-4 mx-2 hover:text-slate-100" href="#"
+          >Logout</a
+        >
       </div>
     </nav>
   </div>
@@ -17,5 +21,11 @@
 <script>
 export default {
   name: "Header",
+  methods: {
+    logout() {
+      localStorage.clear("userInfo");
+      this.$router.push("/login");
+    },
+  },
 };
 </script>
